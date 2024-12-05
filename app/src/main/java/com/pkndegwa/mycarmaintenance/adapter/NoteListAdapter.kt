@@ -8,10 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pkndegwa.mycarmaintenance.databinding.NoteListItemBinding
 import com.pkndegwa.mycarmaintenance.models.Note
 
-/**
- * This class implements a [RecyclerView] [ListAdapter] in NotesFragment which uses Data Binding to present [List]
- * data, including computing diffs between lists.
- */
 class NoteListAdapter(private val onItemClicked: (Note) -> Unit) :
     ListAdapter<Note, NoteListAdapter.NoteViewHolder>(DiffCallback) {
 

@@ -8,10 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pkndegwa.mycarmaintenance.databinding.RemindersListItemBinding
 import com.pkndegwa.mycarmaintenance.models.Reminder
 
-/**
- * This class implements a [RecyclerView] [ListAdapter] in RemindersFragment which uses Data Binding to present [List]
- * data, including computing diffs between lists.
- */
+
 class ReminderListAdapter(private val onItemClicked: (Reminder) -> Unit) :
     ListAdapter<Reminder, ReminderListAdapter.ReminderViewHolder>(DiffCallback) {
 

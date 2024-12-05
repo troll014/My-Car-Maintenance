@@ -8,29 +8,19 @@ import com.pkndegwa.mycarmaintenance.database.VehicleDao
 import com.pkndegwa.mycarmaintenance.models.Vehicle
 import kotlinx.coroutines.launch
 
-/**
- * The [ViewModel] that is attached to the VehiclesFragment.
- */
+
 class VehiclesViewModel(private val vehicleDao: VehicleDao) : ViewModel() {
 
     fun getAllVehicles() = vehicleDao.getAllVehicles()
 
-    /**
-     * This function takes in a [Vehicle] object and adds the data to the database
-     * on a background thread.
-     * @param [vehicle]
-     */
+
     private fun insertVehicle(vehicle: Vehicle) {
         viewModelScope.launch {
             vehicleDao.insertVehicle(vehicle)
         }
     }
 
-    /**
-     * Converts vehicle details that have been entered by the user to a new [Vehicle] instance
-     * and returns it.
-     * @return Vehicle
-     */
+
     private fun createNewVehicleEntry(
         vehicleImageUri: String, vehicleType: String, vehicleManufacturer: String, vehicleModel: String,
         vehicleModelYear: String, vehicleLicensePlate: String, vehicleFuelType: String, vehicleMileage: String
@@ -79,12 +69,7 @@ class VehiclesViewModel(private val vehicleDao: VehicleDao) : ViewModel() {
         }
     }
 
-    /**
-     * This function takes in a [Vehicle] object and updates the data of the existing
-     * vehicle in the database on a background thread.
-     * @param [vehicle]
-     * @return Boolean
-     */
+
     private fun update(vehicle: Vehicle): Boolean {
         return try {
             viewModelScope.launch { vehicleDao.updateVehicle(vehicle) }
@@ -94,11 +79,7 @@ class VehiclesViewModel(private val vehicleDao: VehicleDao) : ViewModel() {
         }
     }
 
-    /**
-     * Converts edited vehicle details that have been entered by the user to a [Vehicle] instance
-     * and returns it.
-     * @return Vehicle
-     */
+
     private fun getUpdatedVehicleEntry(
         vehicleId: Int, vehicleImageUri: String, vehicleType: String, vehicleManufacturer: String, vehicleModel:
         String, vehicleModelYear: String, vehicleLicensePlate: String, vehicleFuelType: String, vehicleMileage: String
@@ -116,10 +97,7 @@ class VehiclesViewModel(private val vehicleDao: VehicleDao) : ViewModel() {
         )
     }
 
-    /**
-     * Public function that takes in updated vehicle details, gets an updated [Vehicle] instance,
-     * and passes the information to [update] to be updated in the database.
-     */
+
     fun updateVehicle(
         vehicleId: Int,
         vehicleImageUri: String,

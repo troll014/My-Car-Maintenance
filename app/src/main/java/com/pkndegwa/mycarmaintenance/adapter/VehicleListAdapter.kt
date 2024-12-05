@@ -13,10 +13,7 @@ import com.pkndegwa.mycarmaintenance.databinding.VehiclesListItemBinding
 import com.pkndegwa.mycarmaintenance.models.Vehicle
 import com.pkndegwa.mycarmaintenance.utils.changeVehicleTypeImage
 
-/**
- * This class implements a [RecyclerView] [ListAdapter] in VehiclesFragment which uses Data Binding to present [List]
- * data, including computing diffs between lists.
- */
+
 class VehicleListAdapter(private val onItemClicked: (Vehicle) -> Unit) :
     ListAdapter<Vehicle, VehicleListAdapter.VehicleViewHolder>(DiffCallback) {
     private lateinit var context: Context
